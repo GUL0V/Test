@@ -1,8 +1,10 @@
 package ua.gulov.test;
 
 import androidx.appcompat.app.AppCompatActivity;
+import ua.gulov.test.Publications.VehiclePublication;
+import ua.gulov.test.Publications.ImageUrlModel;
 import ua.gulov.test.Users.Notification;
-import ua.gulov.test.Users.UserClass;
+import ua.gulov.test.Vehicles.Automobile;
 
 import android.os.Bundle;
 
@@ -34,16 +36,35 @@ public class MainActivity extends AppCompatActivity {
         saved_searches.add(searches[1]);
         saved_searches.add(searches[2]);
 
+        Automobile auto = new Automobile("info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info",
+                "info");
 
-        UserClass user = new UserClass("g", "1",
-                "1", "1",
-                "1", "1",
-                "1", "1",
-                1, 1, 1, notifications, saved_searches);
+        List<ImageUrlModel> images = new ArrayList<>();
+        images.add(new ImageUrlModel("url1"));
+        images.add(new ImageUrlModel("url2"));
+        images.add(new ImageUrlModel("url3"));
+
+        VehiclePublication user = new VehiclePublication(1, "", "", auto,
+                null, null, null,
+                "n", images, "n", "n",
+                "n", "n", "n", "n",
+                "n", "n");
 
 
 
-        reference.child("users").child("user_id2").setValue(user);
+        reference.child("accounts").child("users").child("user_id").setValue(user);
 
 
     }
